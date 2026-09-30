@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Rifat Hasan Emon, software engineer building data platforms and ETL systems.">
+<title>Rifat Hasan Emon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; work entries drawn as stages of a data pipeline, joined by a vertical flow line. */
+:root{
+  --bg:#F2F4F6; --panel:#FFFFFF; --ink:#132029; --muted:#566775; --line:#D5DDE3;
+  --accent:#1E5E8A; --accent-soft:#E1ECF4; --signal:#B7721A; --ok:#2E7D52;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E151B; --panel:#151F27; --ink:#E4ECF2; --muted:#94A5B3; --line:#26343F;
+  --accent:#72B4E2; --accent-soft:#1A2D3B; --signal:#E3A54E; --ok:#6CC08F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E151B; --panel:#151F27; --ink:#E4ECF2; --muted:#94A5B3; --line:#26343F;
+  --accent:#72B4E2; --accent-soft:#1A2D3B; --signal:#E3A54E; --ok:#6CC08F; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{color-scheme:light}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px}
+.wrap{max-width:880px;margin:0 auto;padding-block:56px 72px;display:flex;flex-direction:column;gap:72px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(44px,8vw,76px);font-weight:800;letter-spacing:-.02em}
+.hero .role{font-size:19px;margin-top:14px;color:var(--ink)}
+.hero .role b{color:var(--accent);font-weight:600}
+.hero .intro{margin-top:18px;color:var(--muted);max-width:60ch}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:6px;font-weight:500;text-decoration:none;font-size:15px;border:1px solid var(--line);color:var(--ink);background:var(--panel)}
+.btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.btn:hover{border-color:var(--accent)}
+
+.runlog{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;font-family:var(--mono);font-size:12.5px;line-height:1.75;min-width:0}
+.runlog .head{display:flex;justify-content:space-between;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+.runlog div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-feat{color:var(--accent)} .t-fix{color:var(--signal)} .t-perf{color:var(--ok)}
+.runlog .status{color:var(--ok);margin-top:6px}
+
+/* numbers */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.fact{background:var(--panel);padding:18px 18px 16px}
+.fact .n{font-family:var(--display);font-size:32px;font-weight:700;font-variant-numeric:tabular-nums}
+.fact .d{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+/* sections */
+section{display:flex;flex-direction:column;gap:24px}
+.sec-head{display:flex;flex-direction:column;gap:6px}
+.sec-head h2{font-size:30px;font-weight:700}
+.sec-head p{color:var(--muted);max-width:62ch}
+
+/* pipeline stages */
+.flow{position:relative;display:flex;flex-direction:column;gap:18px;padding-left:28px}
+.flow::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px 24px;min-width:0}
+.stage::before{content:"";position:absolute;left:-26px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.stage .meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:8px}
+.stage h3{font-size:22px;font-weight:700}
+.stage .sum{margin-top:8px;color:var(--muted)}
+.stage ul{margin:14px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.stage li::marker{color:var(--accent)}
+.metric{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.metric span{font-family:var(--mono);font-size:12.5px;padding:4px 10px;border-radius:4px;background:var(--accent-soft);color:var(--ink)}
+.metric span b{color:var(--signal);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 8px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px}
+.skill h3{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.skill p{color:var(--ink)}
+.skill p span{color:var(--muted)}
+
+/* areas */
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.area{border-top:2px solid var(--accent);padding-top:10px}
+.area b{display:block;font-weight:600}
+.area span{font-size:14px;color:var(--muted)}
+
+/* practice */
+.practice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 40px}
+.practice div{display:flex;flex-direction:column;gap:4px}
+.practice b{font-weight:600}
+.practice span{color:var(--muted);font-size:15px}
+
+footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:var(--muted);font-size:14px}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skills,.practice{grid-template-columns:1fr}
+  .areas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stage{padding:18px}
+}
+@media (max-width:420px){.areas{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:border-color .15s ease}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <span class="label">Portfolio</span>
+      <h1>Rifat Hasan Emon</h1>
+      <p class="role">Software engineer building <b>data platforms and ETL systems</b></p>
+      <p class="intro">I work on an AI-assisted ETL platform at Kollect: connectors, workflow orchestration, data validation and load performance. I take features from spec to production, and I've shipped them into a bank's live data-migration programme.</p>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/rifathasanemon" target="_blank" rel="noopener">GitHub · rifathasanemon</a>
+        <a class="btn" href="#work">Recent work</a>
+      </div>
+    </div>
+    <div class="runlog" aria-label="Excerpt of recent commits">
+      <div class="head"><span>git log --oneline</span><span>Sep 2026</span></div>
+      <div><span class="t-feat">feat</span>(workflow): add a LoadCycle step</div>
+      <div><span class="t-feat">feat</span>(loadgen): per-file loads read from SFTP</div>
+      <div><span class="t-fix">fix</span>(validate): enforce REFERENTIAL rules</div>
+      <div><span class="t-perf">perf</span>(execution): report filter work per run</div>
+      <div><span class="t-feat">feat</span>(execution): warn on unindexed upsert key</div>
+      <div><span class="t-feat">feat</span>(grammar): DATETIME_PARSE keeps time</div>
+      <div class="status">✓ status=passed · lanes=etl,frontend,secrets</div>
+    </div>
+  </header>
+
+  <div class="facts" role="list">
+    <div class="fact" role="listitem"><div class="n">55+</div><div class="d">commits merged, late Jul to Sep 2026</div></div>
+    <div class="fact" role="listitem"><div class="n">~30</div><div class="d">feature and fix branches</div></div>
+    <div class="fact" role="listitem"><div class="n">586k</div><div class="d">rows in the load I profiled and fixed</div></div>
+    <div class="fact" role="listitem"><div class="n">4</div><div class="d">banking data feeds provisioned to SIT</div></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <span class="label">Recent work · Jul–Sep 2026</span>
+      <h2>What I've shipped</h2>
+      <p>Each entry is a piece of work I owned end to end, from the spec and design to the code, tests and deployment.</p>
+    </div>
+
+    <div class="flow">
+
+      <article class="stage">
+        <div class="meta"><span class="label">Aug–Sep 2026</span><span class="tag">Client delivery</span></div>
+        <h3>Per-file data loads for a banking client</h3>
+        <p class="sum">I built the ingest path for a bank's enterprise data migration, which covers fetching each file, loading it, validating it, archiving it and releasing it.</p>
+        <ul>
+          <li>Read the blind-load and validator feeds straight from SFTP, with connector credentials supplied from the environment.</li>
+          <li>Translated the client's validator JSON into the platform's VALIDATE rules, and made REFERENTIAL rules check against their reference tables.</li>
+          <li>Added a <span class="mono">LoadCycle</span> workflow step so each load cycle cleanly replaces the previous one.</li>
+          <li>Provisioned all four feeds to the SIT environment, one workflow per file, archived under a dedicated path.</li>
+          <li>Fixed parsing of text-month dates and corrected the client's declared date format.</li>
+        </ul>
+        <div class="tags"><span class="tag">Java 25</span><span class="tag">Spring Boot</span><span class="tag">SFTP</span><span class="tag">PostgreSQL</span><span class="tag">Workflow engine</span></div>
+      </article>
+
+      <article class="stage">
+        <div class="meta"><span class="label">Sep 2026</span><span class="tag">Performance</span></div>
+        <h3>Load performance guardrails</h3>
+        <p class="sum">A transaction feed of 25 files was loading at 42 rows per second and getting slower. I traced it to two platform defects, wrote the spec, and fixed both.</p>
+        <ul>
+          <li>Found that keyed upserts scanned the whole table when the key had no index, so the rate fell as the table grew. The platform now warns when this happens.</li>
+          <li>Moved filter logging off the per-row hot path, so it reports once per run.</li>
+          <li>Fixed a ForEach step that started once per dispatch pass instead of once.</li>
+        </ul>
+        <div class="metric"><span>25 files · 232 MB · ~586,000 rows</span><span>before: <b>42 rows/sec, falling</b></span></div>
+        <div class="tags"><span class="tag">Profiling</span><span class="tag">SQL indexing</span><span class="tag">Apache Flink</span></div>
+      </article>
+
+      <article class="stage">
+        <div class="meta"><span class="label">Aug 2026</span><span class="tag">Observability</span></div>
+        <h3>Alert dispatch log and Alertmanager convergence</h3>
+        <p class="sum">I revived a stalled feature branch, brought it back in line with current conventions, and finished it.</p>
+        <ul>
+          <li>Built a read API for the alert dispatch log and regenerated the OpenAPI contract.</li>
+          <li>Built the dispatch-log UI, and added metrics coverage for alert dispatch.</li>
+          <li>Cleared the static-analysis and test debt left over from the rebase.</li>
+        </ul>
+        <div class="tags"><span class="tag">REST API</span><span class="tag">OpenAPI</span><span class="tag">SvelteKit</span><span class="tag">Prometheus</span><span class="tag">Alertmanager</span></div>
+      </article>
+
+      <article class="stage">
+        <div class="meta"><span class="label">Aug 2026</span><span class="tag">Connectors</span></div>
+        <h3>File naming, dated sources and timestamps</h3>
+        <p class="sum">These changes make file-based connectors behave the way operators expect.</p>
+        <ul>
+          <li>Added naming templates for destination files, and discovery of dated source files.</li>
+          <li>Centralised scheme-aware path handling, then stopped the Xero extract and all file sinks from creating unwanted date folders.</li>
+          <li>Made <span class="mono">DATETIME_PARSE</span> keep the time of day on Xero and REST timestamps, and stamped <span class="mono">created_at</span> / <span class="mono">updated_at</span> from the execution timestamp.</li>
+        </ul>
+        <div class="tags"><span class="tag">Apache Camel</span><span class="tag">Xero API</span><span class="tag">Expression grammar</span></div>
+      </article>
+
+      <article class="stage">
+        <div class="meta"><span class="label">Jul–Aug 2026</span><span class="tag">Full stack</span></div>
+        <h3>Workflow parameters and step bindings</h3>
+        <p class="sum">I wrote the specs, plan and implementation that let workflows pass values into the pipelines they run.</p>
+        <ul>
+          <li>Showed each pipeline's declared parameters on the workflow canvas.</li>
+          <li>Added persistence for step parameter bindings and completed the authoring path in the UI.</li>
+        </ul>
+        <div class="tags"><span class="tag">Svelte 5</span><span class="tag">@xyflow/svelte</span><span class="tag">MyBatis</span><span class="tag">Flyway</span></div>
+      </article>
+
+      <article class="stage">
+        <div class="meta"><span class="label">Jul 2026</span><span class="tag">Brand</span></div>
+        <h3>Brand refresh</h3>
+        <p class="sum">I rolled out the refreshed logo across the product, set the secondary gold to #E5B445, and updated the favicon to the new mark.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">Earlier contributions</span>
+      <h2>Other areas I've worked in</h2>
+    </div>
+    <div class="areas">
+      <div class="area"><b>Trigger UX</b><span>Cron, file-watch and webhook triggers</span></div>
+      <div class="area"><b>Pipeline as API</b><span>Pipelines exposed over REST and MCP</span></div>
+      <div class="area"><b>Table personalization</b><span>Saved views, sorting, streamed export</span></div>
+      <div class="area"><b>Change data capture</b><span>Incremental loads</span></div>
+      <div class="area"><b>Accounting connectors</b><span>Xero and QuickBooks, OAuth2</span></div>
+      <div class="area"><b>Execution logging</b><span>Run history and logs</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">Skills</span>
+      <h2>Toolkit</h2>
+    </div>
+    <div class="skills">
+      <div class="skill"><h3>Backend</h3><p>Java 25, Spring Boot 4, MyBatis, Flyway, Spring Security (JWT) <span>· REST and contract-first OpenAPI</span></p></div>
+      <div class="skill"><h3>Data &amp; integration</h3><p>Apache Flink, Apache Camel, PostgreSQL <span>· SFTP, REST/OAuth2 connectors, data validation, upsert tuning</span></p></div>
+      <div class="skill"><h3>Frontend</h3><p>TypeScript, SvelteKit 2, Svelte 5 runes, Tailwind CSS, Skeleton UI <span>· canvas editors with @xyflow</span></p></div>
+      <div class="skill"><h3>Ops &amp; observability</h3><p>Docker, nginx, Prometheus, Grafana, Alertmanager, Loki <span>· Gitea CI</span></p></div>
+      <div class="skill"><h3>Quality</h3><p>SonarQube, Checkstyle, PMD, SpotBugs, JUnit, Vitest, Playwright</p></div>
+      <div class="skill"><h3>Process</h3><p>Spec-driven development, Conventional Commits, OpenProject <span>· AI-assisted coding with Claude Code</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">How I work</span>
+      <h2>Engineering practice</h2>
+    </div>
+    <div class="practice">
+      <div><b>Spec before code</b><span>Features start as a written spec, a plan and a task breakdown, including a migration plan for operators.</span></div>
+      <div><b>Measure, then fix</b><span>Performance work starts from a measured rate on a real feed, not a guess.</span></div>
+      <div><b>Keep the code healthy</b><span>I split complex functions to stay within the cognitive-complexity limit, share duplicated scaffolding, and add tests to untested code.</span></div>
+      <div><b>Small, readable commits</b><span>Each commit is one logical change with a message that says what it does.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Rifat Hasan Emon · Software Engineer</span>
+    <a href="https://github.com/rifathasanemon" target="_blank" rel="noopener">github.com/rifathasanemon</a>
+  </footer>
+
+</div>
+</body>
+</html>
