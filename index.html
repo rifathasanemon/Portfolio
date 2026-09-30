@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfolio of Rifat Hasan Emon, software engineer building data platforms and ETL systems.">
+<meta name="description" content="Portfolio of Rifat Hasan Emon, full-stack developer building data platforms and ETL systems.">
 <title>Rifat Hasan Emon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -86,6 +86,17 @@ section{display:flex;flex-direction:column;gap:24px}
 .skill p{color:var(--ink)}
 .skill p span{color:var(--muted)}
 
+/* career, education */
+.roles{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.role-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:14px;border-bottom:1px solid var(--line)}
+.role-row .when{font-size:13px;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.role-row b{font-weight:600}
+.role-row span:not(.when){color:var(--muted);font-size:15px}
+.pubs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pubs article{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pubs h3{font-size:18px;font-weight:700;line-height:1.25}
+.pubs p{color:var(--muted);font-size:15px}
+
 /* areas */
 .areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .area{border-top:2px solid var(--accent);padding-top:10px}
@@ -103,7 +114,8 @@ footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:
 @media (max-width:760px){
   .hero{grid-template-columns:1fr}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .skills,.practice{grid-template-columns:1fr}
+  .skills,.practice,.pubs{grid-template-columns:1fr}
+  .role-row{grid-template-columns:1fr;gap:2px}
   .areas{grid-template-columns:repeat(2,minmax(0,1fr))}
   .stage{padding:18px}
 }
@@ -122,9 +134,10 @@ footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:
       <span class="label">Portfolio</span>
       <h1>Rifat Hasan Emon</h1>
       <p class="role">Software engineer building <b>data platforms and ETL systems</b></p>
-      <p class="intro">I work on an AI-assisted ETL platform at Kollect: connectors, workflow orchestration, data validation and load performance. I take features from spec to production, and I've shipped them into a bank's live data-migration programme.</p>
+      <p class="intro">I'm a full-stack developer at Kollect Systems in Malaysia, working on an AI-assisted ETL platform: connectors, workflow orchestration, data validation and load performance. I take features from spec to production, and I've shipped them into a bank's live data-migration programme. I hold a BSc in Computer Science from IIUM and I'm studying for a Master's in IT.</p>
       <div class="links">
-        <a class="btn primary" href="https://github.com/rifathasanemon" target="_blank" rel="noopener">GitHub · rifathasanemon</a>
+        <a class="btn primary" href="https://github.com/rifathasanemon" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/rifat-hasan-emon-19729b1a2" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="#work">Recent work</a>
       </div>
     </div>
@@ -141,11 +154,28 @@ footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:
   </header>
 
   <div class="facts" role="list">
-    <div class="fact" role="listitem"><div class="n">55+</div><div class="d">commits merged, late Jul to Sep 2026</div></div>
-    <div class="fact" role="listitem"><div class="n">~30</div><div class="d">feature and fix branches</div></div>
+    <div class="fact" role="listitem"><div class="n">3 yrs</div><div class="d">at Kollect Systems, intern to developer</div></div>
+    <div class="fact" role="listitem"><div class="n">55+</div><div class="d">commits merged, Jul to Sep 2026</div></div>
     <div class="fact" role="listitem"><div class="n">586k</div><div class="d">rows in the load I profiled and fixed</div></div>
-    <div class="fact" role="listitem"><div class="n">4</div><div class="d">banking data feeds provisioned to SIT</div></div>
+    <div class="fact" role="listitem"><div class="n">2</div><div class="d">published papers, IEEE and JARCA</div></div>
   </div>
+
+  <section id="career">
+    <div class="sec-head">
+      <span class="label">Career</span>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="roles">
+      <div class="role-row">
+        <span class="when mono">Feb 2024 – now</span>
+        <div><b>Web Developer</b> · Kollect Systems Sdn. Bhd., Petaling Jaya<br><span>Full-stack work on KollectAI-ETL, a visual ETL and workflow platform, and Keil, an e-invoicing system.</span></div>
+      </div>
+      <div class="role-row">
+        <span class="when mono">2023 – 2024</span>
+        <div><b>Full-Stack Developer Intern</b> · Kollect Systems Sdn. Bhd., Petaling Jaya<br><span>Built web applications that process, analyse and visualise data, using Svelte, Java and PostgreSQL.</span></div>
+      </div>
+    </div>
+  </section>
 
   <section id="work">
     <div class="sec-head">
@@ -253,7 +283,38 @@ footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:
       <div class="skill"><h3>Frontend</h3><p>TypeScript, SvelteKit 2, Svelte 5 runes, Tailwind CSS, Skeleton UI <span>· canvas editors with @xyflow</span></p></div>
       <div class="skill"><h3>Ops &amp; observability</h3><p>Docker, nginx, Prometheus, Grafana, Alertmanager, Loki <span>· Gitea CI</span></p></div>
       <div class="skill"><h3>Quality</h3><p>SonarQube, Checkstyle, PMD, SpotBugs, JUnit, Vitest, Playwright</p></div>
-      <div class="skill"><h3>Process</h3><p>Spec-driven development, Conventional Commits, OpenProject <span>· AI-assisted coding with Claude Code</span></p></div>
+      <div class="skill"><h3>Process</h3><p>Spec-driven development, Agile Scrum, Conventional Commits <span>· AI-assisted coding with Claude Code</span></p></div>
+      <div class="skill"><h3>Languages</h3><p>Java, TypeScript, SQL, Python, C/C++, MATLAB</p></div>
+      <div class="skill"><h3>Machine learning</h3><p>Logistic Regression, Random Forest, XGBoost <span>· applied to bank fraud data</span></p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head">
+      <span class="label">Education &amp; research</span>
+      <h2>Study and publications</h2>
+    </div>
+    <div class="roles">
+      <div class="role-row">
+        <span class="when mono">Oct 2024 – now</span>
+        <div><b>Master of Information Technology</b> · International Islamic University Malaysia</div>
+      </div>
+      <div class="role-row">
+        <span class="when mono">2020 – 2024</span>
+        <div><b>BSc Computer Science (Honours)</b> · International Islamic University Malaysia<br><span>CGPA 3.60/4.00 · Rector's List 2024 · Dean's List 2021</span></div>
+      </div>
+    </div>
+    <div class="pubs">
+      <article>
+        <span class="label">2025 · IEEE ICT4M</span>
+        <h3>An Investigation into the Determinants of Bank Fraud Victimization</h3>
+        <p>Used Logistic Regression, Random Forest and XGBoost on real fraud data to find the behavioural, demographic and technological factors behind fraud exposure.</p>
+      </article>
+      <article>
+        <span class="label">2024 · JARCA 36(1)</span>
+        <h3>Design and Development of iAQSA, a Web Application to Support Qualitative Research</h3>
+        <p>My final-year project: a platform that guides postgraduate researchers from proposal to report, with supervisor feedback built in.</p>
+      </article>
     </div>
   </section>
 
@@ -271,8 +332,8 @@ footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:
   </section>
 
   <footer>
-    <span>Rifat Hasan Emon · Software Engineer</span>
-    <a href="https://github.com/rifathasanemon" target="_blank" rel="noopener">github.com/rifathasanemon</a>
+    <span>Rifat Hasan Emon · Full-Stack Developer · Kuala Lumpur</span>
+    <span><a href="https://github.com/rifathasanemon" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/rifat-hasan-emon-19729b1a2" target="_blank" rel="noopener">LinkedIn</a></span>
   </footer>
 
 </div>
