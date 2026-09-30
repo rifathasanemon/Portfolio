@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="CV of Rifat Hasan Emon, full-stack developer building data platforms and ETL systems.">
+<title>Rifat Hasan Emon CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the portfolio's tokens on a single résumé sheet; every entry sits on a date gutter, sections split by hairlines. */
+:root{
+  --bg:#F2F4F6; --panel:#FFFFFF; --ink:#132029; --muted:#566775; --line:#D5DDE3;
+  --accent:#1E5E8A; --accent-soft:#E1ECF4; --signal:#B7721A; --ok:#2E7D52;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E151B; --panel:#151F27; --ink:#E4ECF2; --muted:#94A5B3; --line:#26343F;
+  --accent:#72B4E2; --accent-soft:#1A2D3B; --signal:#E3A54E; --ok:#6CC08F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E151B; --panel:#151F27; --ink:#E4ECF2; --muted:#94A5B3; --line:#26343F;
+  --accent:#72B4E2; --accent-soft:#1A2D3B; --signal:#E3A54E; --ok:#6CC08F; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{color-scheme:light}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px}
+.sheet{max-width:860px;margin:40px auto 64px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:44px 48px;display:flex;flex-direction:column;gap:34px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p,ul{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+/* header */
+header{display:flex;flex-direction:column;gap:10px;padding-bottom:26px;border-bottom:2px solid var(--ink)}
+header h1{font-size:clamp(34px,6vw,50px);font-weight:800;letter-spacing:-.02em}
+header .role{font-size:18px}
+header .role b{color:var(--accent);font-weight:600}
+.contact{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.contact span,.contact a{white-space:nowrap}
+
+/* sections */
+section{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px}
+section > h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;padding-top:3px}
+.body{display:flex;flex-direction:column;gap:20px;min-width:0}
+.summary{max-width:64ch}
+
+.entry{display:flex;flex-direction:column;gap:6px}
+.entry .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.entry h3{font-size:18px;font-weight:700}
+.entry .org{color:var(--muted)}
+.entry .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.entry ul{padding-left:18px;display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.entry li::marker{color:var(--accent)}
+.metric{display:inline-block;font-family:var(--mono);font-size:12px;padding:1px 7px;border-radius:4px;background:var(--accent-soft);white-space:nowrap}
+
+.proj{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px}
+.proj div{border-top:2px solid var(--accent);padding-top:8px}
+.proj b{display:block;font-weight:600}
+.proj span{color:var(--muted);font-size:14px}
+
+.skills{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 16px}
+.skills dt{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:2px}
+.skills dd{margin:0}
+
+.pub h3{font-size:16px}
+.pub p{color:var(--muted);font-size:14px}
+.pub cite{font-style:italic}
+
+.twocol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+.twocol b{font-weight:600}
+.twocol span{display:block;color:var(--muted);font-size:14px}
+
+@media (max-width:700px){
+  .sheet{padding:28px 20px;margin-block:20px 40px}
+  section{grid-template-columns:1fr;gap:10px}
+  .proj,.twocol{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:0 0}
+  .skills dd{margin-bottom:8px}
+}
+</style>
+</head>
+<body>
+
+<main class="sheet">
+
+  <header>
+    <h1>Rifat Hasan Emon</h1>
+    <p class="role">Full-Stack Developer · <b>Data Platforms &amp; ETL</b></p>
+    <div class="contact">
+      <span>Kuala Lumpur, Malaysia</span>
+      <span>+60 11-3124 1246</span>
+      <span>emonrifat1999@gmail.com</span>
+      <a href="https://www.linkedin.com/in/rifat-hasan-emon-19729b1a2" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/rifathasanemon" target="_blank" rel="noopener">GitHub</a>
+      <a href="index.html">Portfolio</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <div class="body">
+      <p class="summary">Full-stack developer with 2.5+ years at Kollect Systems, building an AI-assisted ETL platform and an e-invoicing system on Java, Spring Boot, Apache Flink, PostgreSQL and Svelte. I own features end to end, from written spec to production, and recently delivered the per-file ingest path for a bank's data-migration programme. BSc (Hons) in Computer Science from IIUM (CGPA 3.60/4.00), now completing a Master's in IT, with two published papers in web applications and machine learning.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="body">
+      <div class="entry">
+        <div class="top"><h3>Web Developer</h3><span class="when">Feb 2024 – Present</span></div>
+        <p class="org">Kollect Systems Sdn. Bhd. · Petaling Jaya, Malaysia</p>
+        <p>Full-stack work on two products: KollectAI-ETL, a visual ETL and workflow platform (Java 25, Spring Boot 4, Apache Flink, Apache Camel, PostgreSQL, SvelteKit), and Keil, an e-invoicing system (Java, Svelte).</p>
+        <ul>
+          <li>Delivered the per-file ingest path for a banking client's data migration: SFTP fetch, load, validation, archive and release for 4 data feeds, provisioned to the SIT environment.</li>
+          <li>Translated the client's validator definitions into platform validation rules, and made referential rules check against their reference tables.</li>
+          <li>Designed a workflow step so each load cycle cleanly replaces the previous one.</li>
+          <li>Traced a <span class="metric">42 rows/sec</span> load on a <span class="metric">586,000-row, 232 MB</span> feed to unindexed upsert keys and per-row logging; added an automatic warning and moved logging off the hot path.</li>
+          <li>Built the alert dispatch-log API, UI and metrics, and finished a stalled observability feature by clearing its static-analysis and test debt.</li>
+          <li>Added destination file-naming templates and dated source-file discovery, and fixed file sinks creating unwanted date folders across connectors, including Xero.</li>
+          <li>Wrote specs and shipped workflow parameters and step bindings, letting workflows pass values into the pipelines they run.</li>
+          <li>Kept code within SonarQube's complexity limits, removed duplication, and added tests to untested code; merged 55+ commits between July and September 2026.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="top"><h3>Full-Stack Developer (Intern)</h3><span class="when">2023 – 2024</span></div>
+        <p class="org">Kollect Systems Sdn. Bhd. · Petaling Jaya, Malaysia</p>
+        <ul>
+          <li>Built full-stack web applications that process, analyse and visualise data, using Svelte, Java and PostgreSQL.</li>
+          <li>Planned, wrote and debugged features from requirements through to release.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <div class="body">
+      <div class="proj">
+        <div><b>Load Performance Guardrails</b><span>Spec and fixes for keyed-upsert slowdowns on a 25-file, ~586,000-row banking feed. Java, PostgreSQL, Flink.</span></div>
+        <div><b>Pipeline as API</b><span>Data pipelines exposed as REST and MCP endpoints for external systems and AI agents. Spring Boot, OpenAPI.</span></div>
+        <div><b>Accounting Connectors</b><span>Xero and QuickBooks over REST with OAuth2, including timestamps and line-item mapping. Apache Camel.</span></div>
+        <div><b>Enterprise Table Personalization</b><span>Saved table views, multi-column sorting and streamed CSV/JSON export. SvelteKit, Svelte 5.</span></div>
+        <div><b>Change Data Capture</b><span>Incremental loads that pick up only changed rows. PostgreSQL.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="body">
+      <dl class="skills">
+        <dt>Languages</dt><dd>Java, TypeScript, JavaScript, SQL, Python, C/C++, MATLAB</dd>
+        <dt>Backend</dt><dd>Spring Boot 4, Spring Security (JWT), MyBatis, Flyway, REST, OpenAPI</dd>
+        <dt>Data</dt><dd>Apache Flink, Apache Camel, PostgreSQL, SFTP, REST/OAuth2 connectors, data validation, query and index tuning</dd>
+        <dt>Frontend</dt><dd>SvelteKit 2, Svelte 4 and 5, Tailwind CSS, Skeleton UI</dd>
+        <dt>ML</dt><dd>Logistic Regression, Random Forest, XGBoost</dd>
+        <dt>DevOps</dt><dd>Docker, nginx, Git, CI/CD (Gitea Actions), Prometheus, Grafana, Alertmanager, Loki</dd>
+        <dt>Quality</dt><dd>JUnit, Vitest, Playwright, SonarQube, Checkstyle, PMD, SpotBugs</dd>
+        <dt>Practices</dt><dd>Spec-driven development, contract-first APIs, Agile Scrum, AI-assisted development (Claude Code)</dd>
+        <dt>Other</dt><dd>Adobe Photoshop, Adobe Premiere Pro, live-stream production</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="body">
+      <div class="entry">
+        <div class="top"><h3>Master of Information Technology</h3><span class="when">Oct 2024 – Present</span></div>
+        <p class="org">International Islamic University Malaysia (IIUM) · Kuala Lumpur</p>
+      </div>
+      <div class="entry">
+        <div class="top"><h3>Bachelor of Computer Science (Honours)</h3><span class="when">Feb 2020 – Mar 2024</span></div>
+        <p class="org">International Islamic University Malaysia (IIUM) · Kuala Lumpur · CGPA 3.60/4.00</p>
+        <ul>
+          <li>Final-year thesis: design and development of iAQSA, a web application that supports qualitative research.</li>
+          <li>Coursework: software engineering, web and mobile app development, software testing, data analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <div class="body">
+      <div class="entry pub">
+        <div class="top"><h3>An Investigation into the Determinants of Bank Fraud Victimization</h3><span class="when">2025</span></div>
+        <p>Wani, S., Salah, A., Hasan, E. R., et al. <cite>IEEE 10th International Conference on Information and Communication Technology for the Muslim World (ICT4M).</cite> Logistic Regression, Random Forest and XGBoost on real fraud data to identify behavioural and technological risk factors.</p>
+      </div>
+      <div class="entry pub">
+        <div class="top"><h3>Design and Development of iAQSA as an Innovative Web Application to Support Qualitative Research</h3><span class="when">2024</span></div>
+        <p>AbdelMaged, A. S. M., Rifat, E. H., Salleh, N., et al. <cite>Journal of Advanced Research in Computing and Applications, 36(1), 29–42.</cite> A platform that guides postgraduate researchers from proposal to reporting, with supervisor feedback built in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Awards &amp; languages</h2>
+    <div class="body twocol">
+      <div><b>Rector's List</b><span>IIUM, 2024</span></div>
+      <div><b>Bengali</b><span>Native</span></div>
+      <div><b>Dean's List</b><span>IIUM, 2021</span></div>
+      <div><b>English</b><span>Professional (CEFR C1 listening, B2 reading, speaking, writing)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>References</h2>
+    <div class="body">
+      <div class="twocol">
+        <div><b>Dr. Norsaremah Salleh</b><span>Associate Professor, Department of Computer Science, IIUM (final-year project supervisor)</span></div>
+        <div><b>Abdullah Abdelgawad</b><span>Senior Technical Consultant, Kollect Systems Sdn. Bhd.</span></div>
+      </div>
+      <p class="label">Contact details available on request</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
